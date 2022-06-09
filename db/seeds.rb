@@ -12,6 +12,15 @@ puts 'Creating restaurants...'
     category: ["chinese", "italian", "japanese", "french", "belgian"].sample
   )
   puts "Created #{restaurant.name}"
+  3.times do
+    review = Review.new(
+      content: Faker::Lorem.paragraph,
+      rating: rand(5)
+    )
+   puts "Wrote a review"
+   review.restaurant = restaurant
+   review.save
+  end
 end
 
 puts "Finished!"
